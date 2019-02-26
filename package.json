@@ -1,9 +1,12 @@
 {
     "name": "vscode-modern-vhdl-support",
     "displayName": "Modern VHDL",
-    "description": "Modern VHDL Language Support",
+    "description": "VHDL Language Support",
+    "publisher": "rjyoung",
     "version": "0.0.1",
     "license": "MIT",
+    "icon": "images/logo.png",
+    "preview": true,
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -13,6 +16,9 @@
     },
     "categories": [
         "Programming Languages"
+    ],
+    "keywords": [
+        "vhdl", "language-vhdl", "hdl", "vhd"
     ],
     "contributes": {
         "languages": [
@@ -39,7 +45,8 @@
         ]
     },
     "scripts": {
-        "yaml2js": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json"
+        "yaml2js": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
+        "vscode:prepublish": "npm run-script yaml2js"
     },
     "devDependencies": {
         "js-yaml": "^3.12.2"
