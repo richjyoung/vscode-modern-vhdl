@@ -27,11 +27,7 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 
 ## Release Notes
 
-This is extension is under active development, and changes in each release are documented here.
-
-### 0.1.0
-
-Initial release, containing a YAML-based language definition written against the VHDL-2008 standard.
+This is extension is under active development, and changes in each release are documented in the [CHANGELOG](./CHANGELOG.md)
 
 ---
 _Copyright (c) 2019 Rich J. Young_
