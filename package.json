@@ -3,8 +3,13 @@
     "displayName": "Modern VHDL",
     "description": "Modern VHDL Language Support",
     "version": "0.0.1",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/richjyoung/vscode-modern-vhdl.git"
     },
     "categories": [
         "Programming Languages"
