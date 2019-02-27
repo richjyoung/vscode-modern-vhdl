@@ -18,3 +18,11 @@ install:
 
 script:
   - vsce package
+
+deploy:
+  provider: releases
+  file: "*.vsix"
+  file_glob: true
+  skip_cleanup: true
+  draft: true
+  overwrite: true
