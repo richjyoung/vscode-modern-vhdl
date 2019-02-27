@@ -1,0 +1,165 @@
+# --------------------------------------------------
+# Design File Primary/Secondary Units
+# --------------------------------------------------
+
+ieee_imports:
+  prefix: ieee
+  description: IEEE Standard Packages
+  scope: source.vhdl
+  body:
+    - library IEEE;
+    - use IEEE.std_logic_1164.all;
+    - use IEEE.numeric_std.all;
+
+entity_declaration:
+  prefix: ent
+  description: Entity Declaration
+  scope: source.vhdl
+  body:
+    - "entity ${1:$TM_FILENAME_BASE} is"
+    - "\tport ("
+    - "\t\t$0"
+    - "\t);"
+    - "end entity ${1:$TM_FILENAME_BASE};"
+
+architecture_declaration:
+  prefix: arch
+  description: Architecture Declaration
+  scope: source.vhdl
+  body:
+    - "architecture ${1:rtl} of ${2:$TM_FILENAME_BASE} is"
+    - "\t"
+    - "begin"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "end architecture ${1:rtl};"
+
+configuration_declaration:
+  prefix: conf
+  description: Configuration Declaration
+  scope: source.vhdl
+  body:
+    - "configuration ${1:rtl} of ${2:$TM_FILENAME_BASE} is"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "end configuration ${1:rtl};"
+
+package_declaration:
+  prefix: pack
+  description: Package Declaration
+  scope: source.vhdl
+  body:
+    - "package ${1:$TM_FILENAME_BASE} is"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "end package ${1:$TM_FILENAME_BASE};"
+
+package_body_declaration:
+  prefix: pack
+  description: Package Body Declaration
+  scope: source.vhdl
+  body:
+    - "package body ${1:$TM_FILENAME_BASE} is"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "end package body ${1:$TM_FILENAME_BASE};"
+
+# --------------------------------------------------
+# Language Constructs
+# --------------------------------------------------
+
+case:
+  prefix: case
+  description: Case Statement
+  scope: source.vhdl
+  body:
+    - "case ${1:expression} is"
+    - "\twhen ${2:choice} =>"
+    - "\t\t$0"
+    - ""
+    - "\twhen others =>"
+    - "\t\t"
+    - ""
+    - "end case;"
+
+case_generate:
+  prefix: case
+  description: Case Generate Statement
+  scope: source.vhdl
+  body:
+    - "${1:generate_label}: case ${2:expression} generate"
+    - "\twhen ${3:choice} =>"
+    - "\t\t$0"
+    - ""
+    - "\twhen others =>"
+    - "\t\tnull;"
+    - ""
+    - "end generate $1;"
+
+if:
+  prefix: if
+  description: If Statement
+  scope: source.vhdl
+  body:
+    - "if ${1:condition} then"
+    - "\t$0"
+    - "end if;"
+
+if_generate:
+  prefix: if
+  description: If Generate Statement
+  scope: source.vhdl
+  body:
+    - "${1:generate_label}: if ${2:condition} generate"
+    - "\t$0"
+    - "end generate $1;"
+
+for:
+  prefix: for
+  description: For Loop
+  scope: source.vhdl
+  body:
+    - "for ${1:iteration} loop"
+    - "\t$0"
+    - "end loop;"
+
+for_generate:
+  prefix: for
+  description: For Generate
+  scope: source.vhdl
+  body:
+    - "${1:generate_label}: for ${2:iteration} generate"
+    - "\t$0"
+    - "end generate $1;"
+
+# --------------------------------------------------
+# Others
+# --------------------------------------------------
+
+std_logic_vector:
+  prefix: std
+  description: std_logic_vector Type
+  scope: source.vhdl
+  body: std_logic_vector(${1:7} ${2|downto,to|} ${3:0})
+
+signed:
+  prefix: si
+  description: signed Type
+  scope: source.vhdl
+  body: signed(${1:7} ${2|downto,to|} ${3:0})
+
+unsigned:
+  prefix: uns
+  description: unsigned Type
+  scope: source.vhdl
+  body: unsigned(${1:7} ${2|downto,to|} ${3:0})
+
+zeroes:
+  prefix: oth
+  description: Zero Others
+  scope: source.vhdl
+  body: "others => '0'"

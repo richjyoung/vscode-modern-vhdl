@@ -3,7 +3,7 @@
     "displayName": "Modern VHDL",
     "description": "VHDL Language Support",
     "publisher": "rjyoung",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "icon": "images/logo.png",
     "preview": true,
@@ -42,10 +42,18 @@
                 "scopeName": "source.vhdl",
                 "path": "./syntaxes/vhdl.tmLanguage.json"
             }
+        ],
+        "snippets": [
+            {
+                "language": "vhdl",
+                "path": "./snippets/vhdl.json"
+            }
         ]
     },
     "scripts": {
-        "yaml2js": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
+        "build": "npm run-script build:syntax && npm run-script build:snippets",
+        "build:snippets": "js-yaml ./snippets/vhdl.yml > ./snippets/vhdl.json",
+        "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
         "vscode:prepublish": "npm run-script yaml2js"
     },
     "devDependencies": {

@@ -19,11 +19,15 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 ## Features
 
 * Syntax highlighting of VHDL files up to the 2008 standard.
+* Snippets:
+    * Primary & Secondary Units.
+    * `if`/`case`/`for`/`generate`.
+    * Range types: `std_logic_vector`/`signed`/`unsigned`.
 
 ## Coming Soon
 
-* Primary/Secondary Unit Snippets
 * Control Statement Snippets
+* Symbol Extraction
 
 ## Release Notes
 

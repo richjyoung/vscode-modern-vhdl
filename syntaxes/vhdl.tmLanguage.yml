@@ -3,6 +3,7 @@ name: VHDL
 patterns:
   - include: "#design_file"
   - include: "#comments"
+  - include: "#grammar"
 repository:
   design_file:
     patterns:
@@ -382,7 +383,7 @@ repository:
           (;)
         endCaptures:
           1: { name: keyword.reserved.vhdl }
-          2: { name: entity.name.type.vhdl }
+          2: { name: entity.name.tag.vhdl }
           3: { name: keyword.operator.vhdl }
         patterns:
           - include: "#grouping_statements"
@@ -578,6 +579,7 @@ repository:
       - include: "#subtype_statement"
       - include: "#type_statement"
       - include: "#variable_declaration"
+      - include: "#when_constant"
 
   access_declaration:
     # access label
@@ -704,6 +706,20 @@ repository:
           2: { name: keyword.reserved.vhdl }
           4: { name: keyword.operator.vhdl }
           5: { name: entity.name.type.vhdl }
+
+  when_constant:
+    # when label =>
+    patterns:
+      - name: meta.block.when_constant.vhdl
+        match: (?xi)
+          \b(when)\s+
+          (?!others)
+          ([a-z][a-z0-9_]*)\s*
+          (\=\>)
+        captures:
+          1: { name: keyword.reserved.vhdl }
+          2: { name: variable.other.constant.vhdl }
+          3: { name: keyword.operator.vhdl }
 
   # --------------------------------------------------
   # Special Case Statements
