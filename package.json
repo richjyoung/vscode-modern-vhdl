@@ -54,7 +54,7 @@
         "build": "npm run-script build:syntax && npm run-script build:snippets",
         "build:snippets": "js-yaml ./snippets/vhdl.yml > ./snippets/vhdl.json",
         "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
-        "vscode:prepublish": "npm run-script yaml2js"
+        "vscode:prepublish": "npm run-script build"
     },
     "devDependencies": {
         "js-yaml": "^3.12.2"
