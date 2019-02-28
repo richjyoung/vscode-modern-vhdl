@@ -11,7 +11,7 @@ cache: npm
 branches:
   only:
     - master
-    - /^v[0-9]+\.[0-9]+\.[0-9]+$
+    - /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
 install:
   - npm install -g vsce
