@@ -24,7 +24,7 @@ before_deploy:
   - git config --local user.name "Travis CI"
   - export VERSION_TAG=v$(node -p -e "require('./package.json').version")
   - echo Tagging $VERSION_TAG
-  - git tag -a -m -f "Travis CI generated release tag $VERSION_TAG for build $TRAVIS_BUILD_NUMBER" $VERSION_TAG
+  - git tag -a -f -m "Travis CI generated release tag $VERSION_TAG for build $TRAVIS_BUILD_NUMBER" $VERSION_TAG
   - git push --tags
 
 deploy:
