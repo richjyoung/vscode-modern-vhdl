@@ -25,10 +25,11 @@ before_deploy:
 
 deploy:
   provider: releases
-  on:
-    tags: true
+  # on:
+  #   tags: true
   file: "*.vsix"
   api_key: $GITHUB_API_KEY
   file_glob: true
   skip_cleanup: true
   overwrite: true
+  draft: true
