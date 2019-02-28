@@ -11,6 +11,7 @@ cache: npm
 branches:
   only:
     - master
+    - /^v[0-9]+\.[0-9]+\.[0-9]+$
 
 install:
   - npm install -g vsce
@@ -19,21 +20,12 @@ install:
 script:
   - vsce package
 
-before_deploy:
-  - git config --local user.email "builds@travis-ci.com"
-  - git config --local user.name "Travis CI"
-  - export VERSION_TAG=v$(node -p -e "require('./package.json').version")
-  - echo Tagging $VERSION_TAG
-  - git tag -a -f -m "Travis CI generated release tag $VERSION_TAG for build $TRAVIS_BUILD_NUMBER" $VERSION_TAG
-  - git push --tags
-
 deploy:
   provider: releases
-  # on:
-  #   tags: true
+  on:
+    tags: true
   file: "*.vsix"
   api_key: $GITHUB_API_KEY
   file_glob: true
   skip_cleanup: true
   overwrite: true
-  draft: true
