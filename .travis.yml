@@ -21,7 +21,7 @@ script:
 
 before_deploy:
   - export VERSION_TAG=v$(node -p -e "require('./package.json').version")
-  - echo "Tagging $VERSION_TAG"
+  - echo Tagging $VERSION_TAG
 
 deploy:
   provider: releases
