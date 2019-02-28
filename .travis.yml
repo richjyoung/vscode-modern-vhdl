@@ -20,8 +20,13 @@ script:
   - vsce package
 
 before_deploy:
+  - git config --local user.email "builds@travis-ci.com"
+  - git config --local user.name "Travis CI"
   - export VERSION_TAG=v$(node -p -e "require('./package.json').version")
   - echo Tagging $VERSION_TAG
+  - git tag -df $VERSION_TAG
+  - git tag $VERSION_TAG -a -m "Travis CI generated release tag $VERSION_TAG for build $TRAVIS_BUILD_NUMBER"
+  - git push --tags
 
 deploy:
   provider: releases
