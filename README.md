@@ -1,5 +1,7 @@
 # VSCode Modern VHDL Support
 
+[![Build Status](https://travis-ci.com/richjyoung/vscode-modern-vhdl.svg?branch=master)](https://travis-ci.com/richjyoung/vscode-modern-vhdl)
+
 This extension add language support for VHDL, based on the 2008 standard. Also includes syntax highlighting of constants, types and functions for the following standard packages:
 
 * STD
