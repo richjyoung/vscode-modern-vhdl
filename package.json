@@ -10,15 +10,23 @@
     "engines": {
         "vscode": "^1.0.0"
     },
+    "main": "./out/extension.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/richjyoung/vscode-modern-vhdl.git"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "keywords": [
-        "vhdl", "language-vhdl", "hdl", "vhd"
+        "vhdl",
+        "language-vhdl",
+        "hdl",
+        "vhd"
+    ],
+    "activationEvents": [
+        "onLanguage:vhdl"
     ],
     "contributes": {
         "languages": [
@@ -54,9 +62,22 @@
         "build": "npm run-script build:syntax && npm run-script build:snippets",
         "build:snippets": "js-yaml ./snippets/vhdl.yml > ./snippets/vhdl.json",
         "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
-        "vscode:prepublish": "npm run-script build"
+        "compile": "tsc -p ./",
+		"watch": "npm run-script build && tsc -watch -p ./",
+        "vscode:prepublish": "npm run-script build",
+        "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
+        "@types/node": "^10.12.18",
+        "tslint": "^5.11.1",
+        "typescript": "^3.2.4",
+        "vscode": "^1.1.30",
         "js-yaml": "^3.12.2"
+    },
+    "prettier": {
+        "printWidth": 100,
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 4
     }
 }

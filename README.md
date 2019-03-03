@@ -25,10 +25,13 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
     * Primary & Secondary Units.
     * `if`/`case`/`for`/`generate`.
     * Range types: `std_logic_vector`/`signed`/`unsigned`.
+* Completions:
+    * Standard library packages (STD)
 
 ## Coming Soon
 
 * Control Statement Snippets
+* Completions
 * Symbol Extraction
 
 ## Release Notes

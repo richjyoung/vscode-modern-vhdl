@@ -2,6 +2,7 @@
 .vscode-test/**
 .gitignore
 node_modules/**
+src/**
 /syntaxes/*.json
 /snippets/*.json
 *.vsix
