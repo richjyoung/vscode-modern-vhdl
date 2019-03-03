@@ -3,6 +3,12 @@ All notable changes to the "vscode-modern-vhdl-support" extension will be docume
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [Unreleased]
+- Completions for standard library packages.
+
+## [v0.0.3]
+- No change from v0.0.2, first build in Travis CI.
+
 ## [v0.0.2]
 - Basic snippets added.
 - Constant highlighting in `when` statements.

@@ -26,7 +26,7 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
     * `if`/`case`/`for`/`generate`.
     * Range types: `std_logic_vector`/`signed`/`unsigned`.
 * Completions:
-    * Standard library packages (STD)
+    * Standard libraries & packages (STD, IEEE).
 
 ## Coming Soon
 

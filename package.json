@@ -56,6 +56,25 @@
                 "language": "vhdl",
                 "path": "./snippets/vhdl.json"
             }
+        ],
+        "configuration":[
+            {
+                "title": "VHDL",
+                "properties": {
+                    "vhdl.suggestLibraryCase": {
+                        "type": "string",
+                        "default": "upper",
+                        "enum": ["upper", "lower"],
+                        "description": "Sets the case of inserted text for Library names."
+                    },
+                    "vhdl.suggestPackageCase": {
+                        "type": "string",
+                        "default": "lower",
+                        "enum": ["upper", "lower"],
+                        "description": "Sets the case of inserted text for Package names."
+                    }
+                }
+            }
         ]
     },
     "scripts": {
