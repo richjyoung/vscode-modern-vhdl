@@ -1,3 +1,5 @@
+// Copyright (c) 2019 Rich J. Young
+
 import {
     CompletionItem,
     CompletionItemKind,
@@ -6,8 +8,6 @@ import {
     TextDocument,
     workspace
 } from 'vscode';
-
-const conf = workspace.getConfiguration('vhdl');
 
 const packages = {
     std: {
@@ -71,6 +71,7 @@ export const VhdlStdPackageCompletionItemProvider = languages.registerCompletion
     { scheme: '*', language: 'vhdl' },
     {
         provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
+            const conf = workspace.getConfiguration('vhdl', document.uri);
             let linePrefix = document.lineAt(position).text.substr(0, position.character);
             for (const lib in packages) {
                 if (packages.hasOwnProperty(lib)) {

@@ -63,14 +63,31 @@
                 "properties": {
                     "vhdl.suggestLibraryCase": {
                         "type": "string",
+                        "scope": "resource",
                         "default": "upper",
                         "enum": ["upper", "lower"],
                         "description": "Sets the case of inserted text for Library names."
                     },
                     "vhdl.suggestPackageCase": {
                         "type": "string",
+                        "scope": "resource",
                         "default": "lower",
                         "enum": ["upper", "lower"],
+                        "description": "Sets the case of inserted text for Package names."
+                    },
+                    "vhdl.suggestAttributeCase": {
+                        "type": "string",
+                        "scope": "resource",
+                        "default": "lower",
+                        "enum": ["upper", "lower"],
+                        "description": "Sets the case of inserted text for Attribute names."
+                    },
+                    "vhdl.pathToLibraryMapping": {
+                        "type": "array",
+                        "scope": "resource",
+                        "default": [
+                            { "regex": "(\\w+)$" }
+                        ],
                         "description": "Sets the case of inserted text for Package names."
                     }
                 }
