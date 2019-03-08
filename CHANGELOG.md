@@ -4,7 +4,10 @@ All notable changes to the "vscode-modern-vhdl-support" extension will be docume
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
+
+## [0.0.5]
 - Completions for predefined attributes.
+- Snippets for various process statements ([@jethro33](https://github.com/jethro33))
 
 ## [v0.0.4]
 - Completions for standard library packages.

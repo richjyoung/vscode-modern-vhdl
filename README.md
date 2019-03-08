@@ -27,6 +27,7 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 * Syntax highlighting of VHDL files up to the 2008 standard.
 * Snippets:
     * Primary & Secondary Units.
+    * Process Statements.
     * `if`/`case`/`for`/`generate`.
     * Range types: `std_logic_vector`/`signed`/`unsigned`.
 * Completions:
@@ -38,6 +39,19 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 * Control Statement Snippets
 * Completions
 * Symbol Extraction
+
+## Contributing
+
+Contributions are welcome via issues or pull requests. Bug reports should include a minimal example
+to reproduce the behaviour. For bugs in the grammar syntax, please also include the output from
+VSCode **Developer: Inspect TM Scopes** command.
+
+Any contribution must give copyright to the owner of this repository, Rich J. Young, so that the
+project can be managed freely. Copyright headers are included in each source code file and these
+are expected to be unmodified. Any new files must include a similar header.
+
+Major changes are worth discussing by creating an issue first, so that suitability can be agreed
+in advance of any development effort.
 
 ## Release Notes
 
