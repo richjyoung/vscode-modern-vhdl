@@ -148,7 +148,7 @@ testbench_process:
     - "${1:proc_name}: process"
     - "begin"
     - "$0"
-    - "end process; -- $1"
+    - "end process $1;"
 
 combinational_process :
   prefix: cproc
