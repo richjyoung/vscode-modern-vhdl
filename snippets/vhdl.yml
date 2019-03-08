@@ -172,7 +172,7 @@ asynchronous_reset_clocked_process :
     - "elsif ${2|rising_edge,falling_edge|}(${3:clk}) then"
     - "\t"
     - "end if;"
-    - "end process; -- $1"
+    - "end process $1;"
 
 synchronous_reset_clocked_process :
   prefix: sproc
