@@ -158,7 +158,7 @@ combinational_process :
     - "${1:proc_name}: process(${2:sensitivity_list})"
     - "begin"
     - "$0"
-    - "end process; -- $1"
+    - "end process $1;"
 
 asynchronous_reset_clocked_process :
   prefix: aproc
