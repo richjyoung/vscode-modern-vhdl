@@ -31,6 +31,7 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
     * Range types: `std_logic_vector`/`signed`/`unsigned`.
 * Completions:
     * Standard libraries & packages (STD, IEEE).
+    * Predefined attributes ('high, 'low, ...).
 
 ## Coming Soon
 
