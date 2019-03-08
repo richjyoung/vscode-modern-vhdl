@@ -188,7 +188,7 @@ synchronous_reset_clocked_process :
     - "\t\t"
     - "\tend if;"
     - "end if;"
-    - "end process; -- $1"
+    - "end process $1;"
 
 # --------------------------------------------------
 # Others
