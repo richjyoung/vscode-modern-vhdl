@@ -222,4 +222,4 @@ integer_range_limitation:
   prefix: intr
   description: Integer (Range Limitation)
   scope: source.vhdl
-  body: "integer range ${1:L1} ${2|downto,to|} ${3:L2}"
+  body: "integer range ${1:0} ${2|downto,to|} ${3:255}"
