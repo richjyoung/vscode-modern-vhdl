@@ -137,6 +137,60 @@ for_generate:
     - "end generate $1;"
 
 # --------------------------------------------------
+# Process
+# --------------------------------------------------
+
+testbench_process:
+  prefix: tproc
+  description: Testbench Process (No Sensitivity List) 
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: process"
+    - "begin"
+    - "$0"
+    - "end process; -- $1"
+
+combinational_process :
+  prefix: cproc
+  description: Combinational Process 
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: process(${2:sensitivity_list})"
+    - "begin"
+    - "$0"
+    - "end process; -- $1"
+
+asynchronous_reset_clocked_process :
+  prefix: aproc
+  description: Clocked Process (Asynchronous Reset)  
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: process(${3:clk}, ${4:rst})"
+    - "begin"
+    - "if ${4:rst} = ${5:rst_val} then"
+    - "\t$0"
+    - "elsif ${2|rising_edge,falling_edge|}(${3:clk}) then"
+    - "\t"
+    - "end if;"
+    - "end process; -- $1"
+
+synchronous_reset_clocked_process :
+  prefix: sproc
+  description: Clocked Process (Synchronous Reset)  
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: process(${3:clk})"
+    - "begin"
+    - "if ${2|rising_edge,falling_edge|}(${3:clk}) then"
+    - "\tif ${4:rst} = ${5:rst_val} then"
+    - "\t\t$0"
+    - "\telse"
+    - "\t\t"
+    - "\tend if;"
+    - "end if;"
+    - "end process; -- $1"
+
+# --------------------------------------------------
 # Others
 # --------------------------------------------------
 
@@ -163,3 +217,9 @@ zeroes:
   description: Zero Others
   scope: source.vhdl
   body: "others => '0'"
+
+integer_range_limitation:
+  prefix: intr
+  description: Integer (Range Limitation)
+  scope: source.vhdl
+  body: "integer range ${1:L1} ${2|downto,to|} ${3:L2}"
