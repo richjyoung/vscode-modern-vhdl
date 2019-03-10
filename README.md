@@ -33,12 +33,53 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 * Completions:
     * Standard libraries & packages (STD, IEEE).
     * Predefined attributes ('high, 'low, ...).
+* [Stutter-mode](#stutter-mode)
 
 ## Coming Soon
 
 * Control Statement Snippets
 * Completions
 * Symbol Extraction
+
+## Stutter Mode
+
+This feature provides shortcuts to cumbersome syntax elements via multiple presses of certain keys. This optional feature is disabled by default, and can be turned on for Operators, Brackets and Comments as per the following subsections. In order for this to work, you must also set `"editor.formatOnType": true` to enable live replacement of text as you type.
+
+### Delimiter Shortcuts
+
+Enable via `"vhdl.enableStutterDelimiters": true`.
+
+| Shortcut | Replacement |
+|:--------:|:-----------:|
+| `''`     | `"`         |
+| `;;`     | `:`         |
+| `;;;`    | `:=`        |
+| `..`     | `=>`        |
+| `,,`     | `<=`        |
+
+For all operator replacements (i.e. except `"`), spaces will be added either side of the replacement if not already present.
+
+### Bracket Shortcuts
+
+Enable via `"vhdl.enableStutterBrackets": true`. **Note:** These replacements are compatible with `"editor.autoClosingBrackets": true`, so long as the corresponding close bracket shortcut is also used.
+
+| Shortcut | Replacement |
+|:--------:|:-----------:|
+| `[`      | `(`         |
+| `[[`     | `[`         |
+| `]`      | `)`         |
+| `]]`     | `]`         |
+
+### Comment Shortcuts
+
+Enable via `"vhdl.enableStutterComments": true`.
+
+| Shortcut | Replacement                                             |
+|:--------:|:--------------------------------------------------------|
+| `---`    | Line separator, defined by `"vhdl.stutterCommentWidth"` |
+| `----`   | Display comment (surrounded by line separators)         |
+
+**Note:** When inserting a display comment, the cursor will be left at the end of the final separator, rather than the middle of the block.
 
 ## Contributing
 
