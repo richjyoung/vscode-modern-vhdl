@@ -82,11 +82,23 @@
                         "enum": ["upper", "lower"],
                         "description": "Sets the case of inserted text for Attribute names."
                     },
-                    "vhdl.enableStutterCompletions": {
+                    "vhdl.enableStutterDelimiters": {
                         "type": "boolean",
                         "scope": "resource",
                         "default": false,
-                        "description": "Enables substitutions similar to Emacs vhdl-stutter-mode."
+                        "description": "Enables delimiter substitutions similar to Emacs vhdl-stutter-mode. \"editor.formatOnType\" must also be enabled."
+                    },
+                    "vhdl.enableStutterBrackets": {
+                        "type": "boolean",
+                        "scope": "resource",
+                        "default": false,
+                        "description": "Enables bracket substitutions similar to Emacs vhdl-stutter-mode. \"editor.formatOnType\" must also be enabled."
+                    },
+                    "vhdl.enableStutterComments": {
+                        "type": "boolean",
+                        "scope": "resource",
+                        "default": false,
+                        "description": "Enables comment substitutions similar to Emacs vhdl-stutter-mode. \"editor.formatOnType\" must also be enabled."
                     },
                     "vhdl.stutterCompletionsBlockWidth": {
                         "type": "integer",

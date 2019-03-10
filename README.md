@@ -33,7 +33,7 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 * Completions:
     * Standard libraries & packages (STD, IEEE).
     * Predefined attributes ('high, 'low, ...).
-* [Stutter-mode](#stutter-mode)
+* [Stutter-mode](#stutter-mode), based on similar Emacs functionality.
 
 ## Coming Soon
 

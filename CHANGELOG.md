@@ -4,7 +4,7 @@ All notable changes to the "vscode-modern-vhdl-support" extension will be docume
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
-- Stutter-mode 
+- Stutter-mode completions (based on Emacs feature).
 
 ## [0.0.5]
 - Completions for predefined attributes.
