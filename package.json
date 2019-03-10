@@ -82,13 +82,17 @@
                         "enum": ["upper", "lower"],
                         "description": "Sets the case of inserted text for Attribute names."
                     },
-                    "vhdl.pathToLibraryMapping": {
-                        "type": "array",
+                    "vhdl.enableStutterCompletions": {
+                        "type": "boolean",
                         "scope": "resource",
-                        "default": [
-                            { "regex": "(\\w+)$" }
-                        ],
-                        "description": "Sets the case of inserted text for Package names."
+                        "default": false,
+                        "description": "Enables substitutions similar to Emacs vhdl-stutter-mode."
+                    },
+                    "vhdl.stutterCompletionsBlockWidth": {
+                        "type": "integer",
+                        "scope": "resource",
+                        "default": 80,
+                        "description": "Width of block comment elements inserted by stutter completions."
                     }
                 }
             }

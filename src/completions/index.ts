@@ -3,3 +3,4 @@
 export * from './attributes';
 export * from './libraries';
 export * from './std_packages';
+export * from './emacs_mode';
