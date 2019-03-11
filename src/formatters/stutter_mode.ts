@@ -170,7 +170,7 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
                     if (linePrefix.match(/^\s*$/)) {
                         let prevLineIsComment = document
                             .lineAt(position.line - 1)
-                            .text.match(/^\s*(--\s*)\S+.*$/);
+                            .text.match(/^\s*(--[^-]\s*)\S+.*$/);
                         let prevLineIsEmptyComment = document
                             .lineAt(position.line - 1)
                             .text.match(/^\s*--\s*$/);
