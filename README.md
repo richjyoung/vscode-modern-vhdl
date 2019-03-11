@@ -33,12 +33,55 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 * Completions:
     * Standard libraries & packages (STD, IEEE).
     * Predefined attributes ('high, 'low, ...).
+* [Stutter-mode](#stutter-mode), based on similar Emacs functionality.
 
 ## Coming Soon
 
 * Control Statement Snippets
 * Completions
 * Symbol Extraction
+
+## Stutter Mode
+
+This feature provides shortcuts to cumbersome syntax elements via multiple presses of certain keys. This optional feature is disabled by default, and can be turned on for Operators, Brackets and Comments as per the following subsections. In order for this to work, you must also set `"editor.formatOnType": true` to enable live replacement of text as you type.
+
+Both delimiter and bracket shortcut groups only apply outside of comments.
+
+### Delimiter Shortcuts
+
+Enable via `"vhdl.enableStutterDelimiters": true`.
+
+| Shortcut | Replacement |
+|:--------:|:-----------:|
+| `''`     | `"`         |
+| `;;`     | `:`         |
+| `;;;`    | `:=`        |
+| `..`     | `=>`        |
+| `,,`     | `<=`        |
+
+For all operator replacements (i.e. except `"`), spaces will be added either side of the replacement if not already present.
+
+### Bracket Shortcuts
+
+Enable via `"vhdl.enableStutterBrackets": true`. **Note:** These replacements are compatible with `"editor.autoClosingBrackets": true`, so long as the corresponding close bracket shortcut is also used as this will overwrite the incorrect suggestion.
+
+| Shortcut | Replacement |
+|:--------:|:-----------:|
+| `[`      | `(`         |
+| `[[`     | `[`         |
+| `]`      | `)`         |
+| `]]`     | `]`         |
+
+### Comment Shortcuts
+
+Enable via `"vhdl.enableStutterComments": true`.
+
+| Shortcut | Replacement                                             |
+|:--------:|:--------------------------------------------------------|
+| `---`    | Line separator, defined by `"vhdl.stutterCommentWidth"` |
+| `----`   | Display comment (surrounded by line separators)         |
+
+**Note:** An enter keypress at the end of a line that contains a non-empty comment will continue the comment on the next line. This can be cancelled by pressing enter again.
 
 ## Contributing
 

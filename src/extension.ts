@@ -6,9 +6,11 @@ import {
     VhdlLibraryCompletionItemProvider,
     VhdlStdPackageCompletionItemProvider
 } from './completions';
+import { VhdlStutterModeFormattingEditProvider } from './formatters';
 
 export function activate(context: ExtensionContext) {
     context.subscriptions.push(VhdlAttributeCompletionItemProvider);
     context.subscriptions.push(VhdlLibraryCompletionItemProvider);
     context.subscriptions.push(VhdlStdPackageCompletionItemProvider);
+    context.subscriptions.push(VhdlStutterModeFormattingEditProvider);
 }
