@@ -26,76 +26,92 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
             if (conf.get('enableStutterDelimiters')) {
                 if (linePrefix.endsWith("''")) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), '"')
+                        TextEdit.replace(new Range(position.translate(0, -2), position.with()), '"')
                     ];
                 } else if (linePrefix.endsWith(': ;')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), '= ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            '= '
+                        )
                     ];
                 } else if (linePrefix.match(/\s;;/)) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), ': ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            ': '
+                        )
                     ];
                 } else if (linePrefix.endsWith(';;')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), ' : ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            ' : '
+                        )
                     ];
                 } else if (linePrefix.match(/\s\.\./)) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), '=> ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            '=> '
+                        )
                     ];
                 } else if (linePrefix.endsWith('..')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), ' => ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            ' => '
+                        )
                     ];
                 } else if (linePrefix.match(/\s,,/)) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), '<= ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            '<= '
+                        )
                     ];
                 } else if (linePrefix.endsWith(',,')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), ' <= ')
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            ' <= '
+                        )
                     ];
                 }
             }
             if (conf.get('enableStutterBrackets')) {
                 if (linePrefix.endsWith('([')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), '[')
+                        TextEdit.replace(new Range(position.translate(0, -2), position.with()), '[')
                     ];
                 } else if (linePrefix.endsWith('[')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -1), position.with()), '(')
+                        TextEdit.replace(new Range(position.translate(0, -1), position.with()), '(')
                     ];
                 } else if (linePrefix.endsWith(')]')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -2), position.with()), ']')
+                        TextEdit.replace(new Range(position.translate(0, -2), position.with()), ']')
                     ];
                 } else if (linePrefix.endsWith(']')) {
                     return [
-                        new TextEdit(new Range(position.translate(0, -1), position.with()), ')')
+                        TextEdit.replace(new Range(position.translate(0, -1), position.with()), ')')
                     ];
                 }
             }
             if (conf.get('enableStutterComments')) {
                 if (linePrefix.endsWith('----')) {
                     return [
-                        new TextEdit(
-                            new Range(position.with(), position.with()),
-                            (document.eol == 1 ? '\n' : '\r\n') + indent + '-'.repeat(width)
-                        ),
-                        new TextEdit(
+                        TextEdit.replace(
                             new Range(position.translate(0, -1), position.with()),
                             (document.eol == 1 ? '\n' : '\r\n') + indent + '-- '
+                        ),
+                        TextEdit.insert(
+                            new Position(position.line + 1, 0),
+                            indent + '-'.repeat(width) + (document.eol == 1 ? '\n' : '\r\n')
                         )
                     ];
                 } else if (linePrefix.endsWith('---')) {
-                    return [
-                        new TextEdit(
-                            new Range(position.translate(0, -3), position.with()),
-                            '-'.repeat(width)
-                        )
-                    ];
+                    return [TextEdit.insert(position.with(), '-'.repeat(width - 3))];
                 }
             }
             return [];

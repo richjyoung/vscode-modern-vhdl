@@ -79,8 +79,6 @@ Enable via `"vhdl.enableStutterComments": true`.
 | `---`    | Line separator, defined by `"vhdl.stutterCommentWidth"` |
 | `----`   | Display comment (surrounded by line separators)         |
 
-**Note:** When inserting a display comment, the cursor will be left at the end of the final separator, rather than the middle of the block.
-
 ## Contributing
 
 Contributions are welcome via issues or pull requests. Bug reports should include a minimal example

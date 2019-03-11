@@ -116,7 +116,7 @@
         "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
         "compile": "tsc -p ./",
 		"watch": "npm run-script build && tsc -watch -p ./",
-        "vscode:prepublish": "npm run-script build",
+        "vscode:prepublish": "npm run-script build && npm run-script compile",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
