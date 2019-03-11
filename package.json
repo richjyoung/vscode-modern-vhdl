@@ -8,7 +8,7 @@
     "icon": "images/logo.png",
     "preview": true,
     "engines": {
-        "vscode": "^1.0.0"
+        "vscode": "^1.30.0"
     },
     "main": "./out/extension.js",
     "repository": {
@@ -57,7 +57,7 @@
                 "path": "./snippets/vhdl.json"
             }
         ],
-        "configuration":[
+        "configuration": [
             {
                 "title": "VHDL",
                 "properties": {
@@ -65,21 +65,30 @@
                         "type": "string",
                         "scope": "resource",
                         "default": "upper",
-                        "enum": ["upper", "lower"],
+                        "enum": [
+                            "upper",
+                            "lower"
+                        ],
                         "description": "Sets the case of inserted text for Library names."
                     },
                     "vhdl.suggestPackageCase": {
                         "type": "string",
                         "scope": "resource",
                         "default": "lower",
-                        "enum": ["upper", "lower"],
+                        "enum": [
+                            "upper",
+                            "lower"
+                        ],
                         "description": "Sets the case of inserted text for Package names."
                     },
                     "vhdl.suggestAttributeCase": {
                         "type": "string",
                         "scope": "resource",
                         "default": "lower",
-                        "enum": ["upper", "lower"],
+                        "enum": [
+                            "upper",
+                            "lower"
+                        ],
                         "description": "Sets the case of inserted text for Attribute names."
                     },
                     "vhdl.enableStutterDelimiters": {
@@ -115,7 +124,7 @@
         "build:snippets": "js-yaml ./snippets/vhdl.yml > ./snippets/vhdl.json",
         "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
         "compile": "tsc -p ./",
-		"watch": "npm run-script build && tsc -watch -p ./",
+        "watch": "npm run-script build && tsc -watch -p ./",
         "vscode:prepublish": "npm run-script build && npm run-script compile",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },

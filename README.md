@@ -76,8 +76,11 @@ Enable via `"vhdl.enableStutterComments": true`.
 
 | Shortcut | Replacement                                             |
 |:--------:|:--------------------------------------------------------|
+| `--`     | Automatically adds a space                              |
 | `---`    | Line separator, defined by `"vhdl.stutterCommentWidth"` |
 | `----`   | Display comment (surrounded by line separators)         |
+
+**Note:** An enter keypress at the end of a line that contains a non-empty comment will continue the comment on the next line. This can be cancelled by pressing enter again.
 
 ## Contributing
 

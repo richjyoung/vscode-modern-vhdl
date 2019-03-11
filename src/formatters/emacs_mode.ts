@@ -20,8 +20,6 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
             const conf = workspace.getConfiguration('vhdl', document.uri);
 
             let linePrefix = document.lineAt(position).text.substr(0, position.character);
-            let indent = linePrefix.match(/^(\s*).*$/)[1];
-            let width: number = conf.get('stutterCompletionsBlockWidth');
 
             if (conf.get('enableStutterDelimiters')) {
                 if (linePrefix.endsWith("''")) {
@@ -99,6 +97,9 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
                 }
             }
             if (conf.get('enableStutterComments')) {
+                let indent = linePrefix.match(/^(\s*).*$/)[1];
+                let width: number = conf.get('stutterCompletionsBlockWidth');
+
                 if (linePrefix.endsWith('----')) {
                     return [
                         TextEdit.replace(
@@ -110,8 +111,29 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
                             indent + '-'.repeat(width) + (document.eol == 1 ? '\n' : '\r\n')
                         )
                     ];
-                } else if (linePrefix.endsWith('---')) {
-                    return [TextEdit.insert(position.with(), '-'.repeat(width - 3))];
+                } else if (linePrefix.endsWith('-- -')) {
+                    return [
+                        TextEdit.replace(
+                            new Range(position.translate(0, -2), position.with()),
+                            '-'.repeat(width - 2)
+                        )
+                    ];
+                } else if (linePrefix.endsWith('--')) {
+                    return [TextEdit.insert(position.with(), ' ')];
+                } else if (linePrefix.match(/^\s*$/)) {
+                    let prevLineIsComment = document
+                        .lineAt(position.line - 1)
+                        .text.match(/^\s*(--\s*)\S+.*$/);
+                    let prevLineIsEmptyComment = document
+                        .lineAt(position.line - 1)
+                        .text.match(/^\s*--\s*$/);
+                    if (prevLineIsComment) {
+                        return [TextEdit.insert(position.with(), prevLineIsComment[1])];
+                    } else if (prevLineIsEmptyComment) {
+                        return [
+                            TextEdit.delete(new Range(position.translate(-1, 0), position.with()))
+                        ];
+                    }
                 }
             }
             return [];
@@ -123,5 +145,6 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
     ',',
     '[',
     ']',
-    '-'
+    '-',
+    '\n'
 );
