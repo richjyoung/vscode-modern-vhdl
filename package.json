@@ -8,7 +8,7 @@
     "icon": "images/logo.png",
     "preview": true,
     "engines": {
-        "vscode": "^1.30.0"
+        "vscode": "^1.18.0"
     },
     "main": "./out/extension.js",
     "repository": {
