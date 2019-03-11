@@ -45,6 +45,8 @@ The core grammar definition has been written in [YAML](https://yaml.org/), to al
 
 This feature provides shortcuts to cumbersome syntax elements via multiple presses of certain keys. This optional feature is disabled by default, and can be turned on for Operators, Brackets and Comments as per the following subsections. In order for this to work, you must also set `"editor.formatOnType": true` to enable live replacement of text as you type.
 
+Both delimiter and bracket shortcut groups only apply outside of comments.
+
 ### Delimiter Shortcuts
 
 Enable via `"vhdl.enableStutterDelimiters": true`.
