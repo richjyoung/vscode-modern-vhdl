@@ -100,7 +100,7 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
                 let indent = linePrefix.match(/^(\s*).*$/)[1];
                 let width: number = conf.get('stutterCompletionsBlockWidth');
 
-                if (linePrefix.endsWith('----')) {
+                if (linePrefix.match(/^\s*----+$/)) {
                     return [
                         TextEdit.replace(
                             new Range(position.translate(0, -1), position.with()),
@@ -111,15 +111,8 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
                             indent + '-'.repeat(width) + (document.eol == 1 ? '\n' : '\r\n')
                         )
                     ];
-                } else if (linePrefix.endsWith('-- -')) {
-                    return [
-                        TextEdit.replace(
-                            new Range(position.translate(0, -2), position.with()),
-                            '-'.repeat(width - 2)
-                        )
-                    ];
-                } else if (linePrefix.endsWith('--')) {
-                    return [TextEdit.insert(position.with(), ' ')];
+                } else if (linePrefix.match(/^\s*---$/)) {
+                    return [TextEdit.insert(position.with(), '-'.repeat(width - 3))];
                 } else if (linePrefix.match(/^\s*$/)) {
                     let prevLineIsComment = document
                         .lineAt(position.line - 1)

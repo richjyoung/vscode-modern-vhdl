@@ -61,7 +61,7 @@ For all operator replacements (i.e. except `"`), spaces will be added either sid
 
 ### Bracket Shortcuts
 
-Enable via `"vhdl.enableStutterBrackets": true`. **Note:** These replacements are compatible with `"editor.autoClosingBrackets": true`, so long as the corresponding close bracket shortcut is also used.
+Enable via `"vhdl.enableStutterBrackets": true`. **Note:** These replacements are compatible with `"editor.autoClosingBrackets": true`, so long as the corresponding close bracket shortcut is also used as this will overwrite the incorrect suggestion.
 
 | Shortcut | Replacement |
 |:--------:|:-----------:|
@@ -76,7 +76,6 @@ Enable via `"vhdl.enableStutterComments": true`.
 
 | Shortcut | Replacement                                             |
 |:--------:|:--------------------------------------------------------|
-| `--`     | Automatically adds a space                              |
 | `---`    | Line separator, defined by `"vhdl.stutterCommentWidth"` |
 | `----`   | Display comment (surrounded by line separators)         |
 
