@@ -5,6 +5,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [v0.0.7]
+- Max line length setting for stutter-mode comments.
+
 ## [v0.0.6]
 - Stutter-mode completions (based on similar Emacs feature).
 
