@@ -114,6 +114,12 @@
                         "scope": "resource",
                         "default": 80,
                         "description": "Width of block comment elements inserted by stutter completions."
+                    },
+                    "vhdl.stutterCompletionsMaxWidth": {
+                        "type": "integer",
+                        "scope": "resource",
+                        "default": 0,
+                        "description": "Max width of block comment elements inserted by stutter completions. Set to zero to disable."
                     }
                 }
             }

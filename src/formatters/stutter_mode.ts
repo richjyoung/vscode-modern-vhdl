@@ -147,9 +147,16 @@ export const VhdlStutterModeFormattingEditProvider = languages.registerOnTypeFor
 
                 case '-':
                     if (!conf.get('enableStutterComments')) break;
+                    let max: number = conf.get('stutterCompletionsMaxWidth');
                     let width: number = conf.get('stutterCompletionsBlockWidth');
+                    let indent = linePrefix.match(/^(\s*).*$/)[1];
+
+                    // Adjust width if max is set
+                    if (max > 0) {
+                        width = Math.min(width, max - indent.length);
+                    }
+
                     if (linePrefix.match(/^\s*----+$/)) {
-                        let indent = linePrefix.match(/^(\s*).*$/)[1];
                         return [
                             TextEdit.replace(
                                 new Range(position.translate(0, -1), position.with()),
