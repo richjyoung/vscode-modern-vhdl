@@ -1,0 +1,227 @@
+# Copyright (c) 2019 Rich J. Young
+
+# --------------------------------------------------
+# Design File Primary/Secondary Units
+# --------------------------------------------------
+
+ieee_imports:
+  prefix: IEEE
+  description: IEEE Standard Packages
+  scope: source.vhdl
+  body:
+    - LIBRARY IEEE;
+    - USE IEEE.std_logic_1164.ALL;
+    - USE IEEE.numeric_std.ALL;
+
+entity_declaration:
+  prefix: ENT
+  description: Entity Declaration
+  scope: source.vhdl
+  body:
+    - "ENTITY ${1:$TM_FILENAME_BASE} IS"
+    - "\tPORT ("
+    - "\t\t$0"
+    - "\t);"
+    - "END ENTITY ${1:$TM_FILENAME_BASE};"
+
+architecture_declaration:
+  prefix: ARCH
+  description: Architecture Declaration
+  scope: source.vhdl
+  body:
+    - "ARCHITECTURE ${1:rtl} OF ${2:$TM_FILENAME_BASE} IS"
+    - "\t"
+    - "BEGIN"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "END ARCHITECTURE ${1:rtl};"
+
+configuration_declaration:
+  prefix: CONF
+  description: Configuration Declaration
+  scope: source.vhdl
+  body:
+    - "CONFIGURATION ${1:rtl} OF ${2:$TM_FILENAME_BASE} IS"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "END CONFIGURATION ${1:rtl};"
+
+package_declaration:
+  prefix: PACK
+  description: Package Declaration
+  scope: source.vhdl
+  body:
+    - "PACKAGE ${1:$TM_FILENAME_BASE} IS"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "END PACKAGE ${1:$TM_FILENAME_BASE};"
+
+package_body_declaration:
+  prefix: PACK
+  description: Package Body Declaration
+  scope: source.vhdl
+  body:
+    - "PACKAGE BODY ${1:$TM_FILENAME_BASE} IS"
+    - "\t"
+    - "\t$0"
+    - "\t"
+    - "END PACKAGE BODY ${1:$TM_FILENAME_BASE};"
+
+# --------------------------------------------------
+# Language Constructs
+# --------------------------------------------------
+
+case:
+  prefix: CASE
+  description: Case Statement
+  scope: source.vhdl
+  body:
+    - "CASE ${1:expression} IS"
+    - "\tWHEN ${2:choice} =>"
+    - "\t\t$0"
+    - ""
+    - "\tWHEN OTHERS =>"
+    - "\t\t"
+    - ""
+    - "END CASE;"
+
+case_generate:
+  prefix: CASE
+  description: Case Generate Statement
+  scope: source.vhdl
+  body:
+    - "${1:generate_label}: CASE ${2:expression} GENERATE"
+    - "\tWHEN ${3:choice} =>"
+    - "\t\t$0"
+    - ""
+    - "\tWHEN OTHERS =>"
+    - "\t\tNULL;"
+    - ""
+    - "END GENERATE $1;"
+
+if:
+  prefix: IF
+  description: If Statement
+  scope: source.vhdl
+  body:
+    - "IF ${1:condition} THEN"
+    - "\t$0"
+    - "END IF;"
+
+if_generate:
+  prefix: IF
+  description: If Generate Statement
+  scope: source.vhdl
+  body:
+    - "${1:generate_label}: IF ${2:condition} GENERATE"
+    - "\t$0"
+    - "END GENERATE $1;"
+
+for:
+  prefix: FOR
+  description: For Loop
+  scope: source.vhdl
+  body:
+    - "FOR ${1:iteration} LOOP"
+    - "\t$0"
+    - "END LOOP;"
+
+for_generate:
+  prefix: FOR
+  description: For Generate
+  scope: source.vhdl
+  body:
+    - "${1:generate_label}: FOR ${2:iteration} GENERATE"
+    - "\t$0"
+    - "END GENERATE $1;"
+
+# --------------------------------------------------
+# Process
+# --------------------------------------------------
+
+testbench_process:
+  prefix: TPROC
+  description: Testbench Process (No Sensitivity List) 
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: PROCESS"
+    - "BEGIN"
+    - "$0"
+    - "END PROCESS $1;"
+
+combinational_process :
+  prefix: CPROC
+  description: Combinational Process 
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: PROCESS(${2:sensitivity_list})"
+    - "BEGIN"
+    - "$0"
+    - "END PROCESS $1;"
+
+asynchronous_reset_clocked_process :
+  prefix: APROC
+  description: Clocked Process (Asynchronous Reset)  
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: PROCESS(${3:clk}, ${4:rst})"
+    - "BEGIN"
+    - "IF ${4:rst} = ${5:rst_val} THEN"
+    - "\t$0"
+    - "ELSIF ${2|rising_edge,falling_edge|}(${3:clk}) THEN"
+    - "\t"
+    - "END IF;"
+    - "END PROCESS $1;"
+
+synchronous_reset_clocked_process :
+  prefix: SPROC
+  description: Clocked Process (Synchronous Reset)  
+  scope: source.vhdl
+  body:
+    - "${1:proc_name}: PROCESS(${3:clk})"
+    - "BEGIN"
+    - "IF ${2|rising_edge,falling_edge|}(${3:clk}) THEN"
+    - "\tIF ${4:rst} = ${5:rst_val} THEN"
+    - "\t\t$0"
+    - "\tELSE"
+    - "\t\t"
+    - "\tEND IF;"
+    - "END IF;"
+    - "END PROCESS $1;"
+
+# --------------------------------------------------
+# Others
+# --------------------------------------------------
+
+std_logic_vector:
+  prefix: STD
+  description: std_logic_vector Type
+  scope: source.vhdl
+  body: std_logic_vector(${1:7} ${2|DOWNTO,TO|} ${3:0})
+
+signed:
+  prefix: SI
+  description: signed Type
+  scope: source.vhdl
+  body: signed(${1:7} ${2|DOWNTO,TO|} ${3:0})
+
+unsigned:
+  prefix: UNS
+  description: unsigned Type
+  scope: source.vhdl
+  body: unsigned(${1:7} ${2|DOWNTO,TO|} ${3:0})
+
+zeroes:
+  prefix: OTH
+  description: Zero Others
+  scope: source.vhdl
+  body: "OTHERS => '0'"
+
+integer_range_limitation:
+  prefix: INTR
+  description: Integer (Range Limitation)
+  scope: source.vhdl
+  body: "INTEGER RANGE ${1:0} ${2|DOWNTO,TO|} ${3:255}"

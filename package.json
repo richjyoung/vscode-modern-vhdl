@@ -54,7 +54,11 @@
         "snippets": [
             {
                 "language": "vhdl",
-                "path": "./snippets/vhdl.json"
+                "path": "./snippets/vhdl_lcase.json"
+            },
+            {
+                "language": "vhdl",
+                "path": "./snippets/vhdl_ucase.json"
             }
         ],
         "configuration": [
@@ -127,7 +131,9 @@
     },
     "scripts": {
         "build": "npm run-script build:syntax && npm run-script build:snippets",
-        "build:snippets": "js-yaml ./snippets/vhdl.yml > ./snippets/vhdl.json",
+        "build:snippets": "npm run-script build:snippets:lcase && npm run-script build:snippets:ucase",
+        "build:snippets:lcase": "js-yaml ./snippets/vhdl_lcase.yml > ./snippets/vhdl_lcase.json",
+        "build:snippets:ucase": "js-yaml ./snippets/vhdl_ucase.yml > ./snippets/vhdl_ucase.json",
         "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
         "compile": "tsc -p ./",
         "watch": "npm run-script build && tsc -watch -p ./",
