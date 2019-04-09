@@ -129,11 +129,11 @@
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
-        "@types/node": "^10.12.18",
-        "tslint": "^5.11.1",
-        "typescript": "^3.2.4",
-        "vscode": "^1.1.30",
-        "js-yaml": "^3.12.2"
+        "@types/node": "^10.14.4",
+        "js-yaml": "^3.13.1",
+        "tslint": "^5.15.0",
+        "typescript": "^3.4.2",
+        "vscode": "^1.1.33"
     },
     "prettier": {
         "printWidth": 100,
