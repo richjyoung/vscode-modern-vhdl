@@ -138,6 +138,13 @@ for_generate:
     - "\t$0"
     - "end generate $1;"
 
+assert:
+  prefix: assert
+  description: Assertion
+  scope: source.vhdl
+  body:
+    - "assert ${1:neg_condition} report ${2:message} severity ${3|note,warning,error,failure|};"
+
 # --------------------------------------------------
 # Process
 # --------------------------------------------------
