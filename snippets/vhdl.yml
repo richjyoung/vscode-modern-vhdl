@@ -125,7 +125,7 @@ for:
   description: For Loop
   scope: source.vhdl
   body:
-    - "for ${1:iteration} loop"
+    - "for ${1:loop_var} in ${2:range} loop"
     - "\t$0"
     - "end loop;"
 
