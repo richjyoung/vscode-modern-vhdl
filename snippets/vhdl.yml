@@ -145,6 +145,29 @@ assert:
   body:
     - "assert ${1:neg_condition} report ${2:message} severity ${3|note,warning,error,failure|};"
 
+enumeration_type:
+  prefix: typeenum
+  description: Enumeration type declaration
+  scope: source.vhdl
+  body:
+    - "type ${1:type_name} is (${0});"
+
+array_type:
+  prefix: typearray
+  description: Array type declaration
+  scope: source.vhdl
+  body:
+    - "type ${1:type_name} is array (${2:range}) of ${3:element_type};"
+
+record_type:
+  prefix: typerecord
+  description: Record type declaration
+  scope: source.vhdl
+  body:
+    - "type ${1:type_name} is record"
+    - "\t${0}"
+    - "end record ${1:type_name};"
+
 subtype:
   prefix: subt
   description: Subtype declaration
