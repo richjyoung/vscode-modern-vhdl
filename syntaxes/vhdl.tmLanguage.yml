@@ -645,6 +645,7 @@ repository:
           - match: ([a-z][a-z0-9_]*)
             captures:
               1: { name: entity.name.type.vhdl }
+          - include: "#comments"
 
   file_declaration:
     # file : label ... ;
