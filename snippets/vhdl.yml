@@ -125,7 +125,7 @@ for:
   description: For Loop
   scope: source.vhdl
   body:
-    - "for ${1:iteration} loop"
+    - "for ${1:loop_var} in ${2:range} loop"
     - "\t$0"
     - "end loop;"
 
@@ -137,6 +137,43 @@ for_generate:
     - "${1:generate_label}: for ${2:iteration} generate"
     - "\t$0"
     - "end generate $1;"
+
+assert:
+  prefix: assert
+  description: Assertion
+  scope: source.vhdl
+  body:
+    - "assert ${1:neg_condition} report ${2:message} severity ${3|note,warning,error,failure|};"
+
+enumeration_type:
+  prefix: typeenum
+  description: Enumeration type declaration
+  scope: source.vhdl
+  body:
+    - "type ${1:type_name} is (${0});"
+
+array_type:
+  prefix: typearray
+  description: Array type declaration
+  scope: source.vhdl
+  body:
+    - "type ${1:type_name} is array (${2:range}) of ${3:element_type};"
+
+record_type:
+  prefix: typerecord
+  description: Record type declaration
+  scope: source.vhdl
+  body:
+    - "type ${1:type_name} is record"
+    - "\t${0}"
+    - "end record ${1:type_name};"
+
+subtype:
+  prefix: subt
+  description: Subtype declaration
+  scope: source.vhdl
+  body:
+    - "subtype ${1:subtype_name} is ${2:base_type} range ${3:0} ${4|to,downto|} ${5:7};"
 
 # --------------------------------------------------
 # Process
