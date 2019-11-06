@@ -722,7 +722,7 @@ repository:
           (\=\>)
         captures:
           1: { name: keyword.reserved.vhdl }
-          2: { name: variable.other.constant.vhdl }
+          2: { name: support.constant.vhdl }
           3: { name: keyword.operator.vhdl }
 
   # --------------------------------------------------
@@ -927,7 +927,7 @@ repository:
 
   std_standard_constants:
     patterns:
-      - name: variable.other.constant.std_standard.vhdl
+      - name: support.constant.std_standard.vhdl
         match: (?ix)
           \b(false|true|
           nul|soh|stx|etx|eot|enq|ack|bel|
@@ -957,7 +957,7 @@ repository:
 
   std_textio_constants:
     patterns:
-      - name: variable.other.constant.std_textio.vhdl
+      - name: support.constant.std_textio.vhdl
         match: (?ix)
           \b(right|left|input|output)\s*(?!\()\b
 
@@ -1004,7 +1004,7 @@ repository:
 
   ieee_math_real_constants:
     patterns:
-      - name: variable.other.constant.ieee_math_real.vhdl
+      - name: support.constant.ieee_math_real.vhdl
         match: (?ix)
           \b(math_e|math_1_over_e|math_pi|math_2_pi|math_1_over_pi|math_pi_over_2|
           math_pi_over_3|math_pi_over_4|math_3_pi_over_2|math_log_of_2|math_log_of_10|
@@ -1026,7 +1026,7 @@ repository:
 
   ieee_math_complex_constants:
     patterns:
-      - name: variable.other.constant.ieee_math_complex.vhdl
+      - name: support.constant.ieee_math_complex.vhdl
         match: (?ix)
           \b(math_cbase_1|math_cbase_j|math_czero)\s*(?!\()\b
 
@@ -1046,7 +1046,7 @@ repository:
 
   ieee_float_pkg_constants:
     patterns:
-      - name: variable.other.constant.ieee_float_pkg.vhdl
+      - name: support.constant.ieee_float_pkg.vhdl
         match: (?ix)
           \b(nan|quiet_nan|neg_inf|neg_normal|neg_denormal|neg_zero|pos_zero|
           pos_denormal|pos_normal|pos_inf|isx|round_nearest|round_inf|round_neginf|
@@ -1073,7 +1073,7 @@ repository:
 
   ieee_fixed_pkg_constants:
     patterns:
-      - name: variable.other.constant.ieee_fixed_pkg.vhdl
+      - name: support.constant.ieee_fixed_pkg.vhdl
         match: (?ix)
           \b(fixed_round|fixed_truncate|fixed_saturate|fixed_wrap)\s*(?!\()\b
 
