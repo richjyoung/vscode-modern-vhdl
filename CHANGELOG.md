@@ -4,7 +4,8 @@ All notable changes to the "vscode-modern-vhdl-support" extension will be docume
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
-
+- Added indent patterns ([@DanChianucci](https://github.com/DanChianucci))
+- Clean up grammar rules and scopes ([@DanChianucci](https://github.com/DanChianucci))
 
 ## [v1.0.0]
 - Major release: Seems stable enough to remove preview flag.
