@@ -253,7 +253,7 @@ repository:
           - include: "#grouping_statements"
 
   # --------------------------------------------------
-  # Grouping Elements (none of these can end with a 
+  # Grouping Elements (none of these can end with a
   # single ';')
   # --------------------------------------------------
   grouping_statements:
@@ -389,7 +389,7 @@ repository:
           3: { name: keyword.operator.vhdl }
         patterns:
           - include: "#grouping_statements"
-  
+
   label:
     # Only occurs at the grouping level unless specifically stated
     patterns:
@@ -507,7 +507,7 @@ repository:
           5: { name: keyword.operator.vhdl }
         patterns:
           - include: "#grouping_statements"
-  
+
   subprogram_specification:
     # [pure|impure] [procedure|function] label ... (;|?=is)
     patterns:
@@ -614,7 +614,7 @@ repository:
           1: { name: keyword.reserved.vhdl }
           2: { name: entity.name.tag.vhdl }
           3: { name: keyword.operator.vhdl }
-  
+
   constant_declaration:
     # constant : label
     patterns:
@@ -627,7 +627,7 @@ repository:
           ([a-z][a-z0-9_]*)
         captures:
           1: { name: keyword.reserved.vhdl }
-          2: { name: variable.other.constant.vhdl }
+          2: { name: entity.name.constant.vhdl}
           3: { name: keyword.operator.vhdl }
           4: { name: entity.name.type.vhdl }
 
@@ -662,7 +662,7 @@ repository:
         end: (?i)(;)
         endCaptures:
           1: { name: keyword.operator.vhdl }
-        patterns: 
+        patterns:
           - match: (?i)\b(is)\b
             captures:
               1: { name: keyword.reserved.vhdl } # Stops subprogram_body pattern
@@ -692,7 +692,7 @@ repository:
           2: { name: entity.name.type.vhdl }
           3: { name: keyword.reserved.vhdl }
           4: { name: entity.name.type.vhdl }
-  
+
   variable_declaration:
     # [shared] (signal|variable) : label
     patterns:
@@ -707,6 +707,7 @@ repository:
         captures:
           1: { name: keyword.reserved.vhdl }
           2: { name: keyword.reserved.vhdl }
+          3: { name: entity.name.variable.vhdl}
           4: { name: keyword.operator.vhdl }
           5: { name: entity.name.type.vhdl }
 
@@ -755,13 +756,13 @@ repository:
           1: { name: keyword.operator.vhdl }
           2: { name: keyword.reserved.vhdl }
           3: { name: entity.name.type.vhdl }
-  
+
   named_association:
     patterns:
       - name: meta.block.named_association.vhdl
-        match: (?i)(?!others)([a-z][a-z0-9_]*)\s*=>
+        match: (?i)(?!others)([a-z][a-z0-9_]*)\s*(=>)
         captures:
-          1: { name: variable.other.member.vhdl }
+          1: { name: variable.parameter.vhdl }
           2: { name: keyword.operator.vhdl }
 
   # --------------------------------------------------
