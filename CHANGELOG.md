@@ -5,6 +5,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+- Additional snippets ([@droerich](https://github.com/droerich))
+- Fix comments inside enum lists ([@DanChianucci](https://github.com/DanChianucci))
+
 ## [v0.0.7]
 - Max line length setting for stutter-mode comments.
 
