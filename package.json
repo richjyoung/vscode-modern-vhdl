@@ -3,7 +3,7 @@
     "displayName": "Modern VHDL",
     "description": "VHDL Language Support",
     "publisher": "rjyoung",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "icon": "images/logo.png",
     "engines": {
