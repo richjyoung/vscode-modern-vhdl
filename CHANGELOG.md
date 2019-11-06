@@ -5,6 +5,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+
+## [v1.0.0]
+- Major release: Seems stable enough to remove preview flag.
 - Additional snippets ([@droerich](https://github.com/droerich))
 - Fix comments inside enum lists ([@DanChianucci](https://github.com/DanChianucci))
 

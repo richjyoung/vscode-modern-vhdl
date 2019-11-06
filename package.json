@@ -3,10 +3,9 @@
     "displayName": "Modern VHDL",
     "description": "VHDL Language Support",
     "publisher": "rjyoung",
-    "version": "0.0.7",
+    "version": "1.0.0",
     "license": "MIT",
     "icon": "images/logo.png",
-    "preview": true,
     "engines": {
         "vscode": "^1.18.0"
     },
