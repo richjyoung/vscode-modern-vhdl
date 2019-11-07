@@ -180,7 +180,7 @@ subtype:
 # --------------------------------------------------
 
 testbench_process:
-  prefix: tproc
+  prefix: tproc, processt
   description: Testbench Process (No Sensitivity List) 
   scope: source.vhdl
   body:
@@ -190,7 +190,7 @@ testbench_process:
     - "end process $1;"
 
 combinational_process :
-  prefix: cproc
+  prefix: cproc, processc
   description: Combinational Process 
   scope: source.vhdl
   body:
@@ -200,7 +200,7 @@ combinational_process :
     - "end process $1;"
 
 asynchronous_reset_clocked_process :
-  prefix: aproc
+  prefix: aproc, processa
   description: Clocked Process (Asynchronous Reset)  
   scope: source.vhdl
   body:
@@ -214,7 +214,7 @@ asynchronous_reset_clocked_process :
     - "end process $1;"
 
 synchronous_reset_clocked_process :
-  prefix: sproc
+  prefix: sproc, processs
   description: Clocked Process (Synchronous Reset)  
   scope: source.vhdl
   body:
