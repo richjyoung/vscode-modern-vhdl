@@ -16,7 +16,7 @@ export const VhdlLibraryCompletionItemProvider = languages.registerCompletionIte
         provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
             const conf = workspace.getConfiguration('vhdl', document.uri);
             let linePrefix = document.lineAt(position).text.substr(0, position.character);
-            if (linePrefix.match(/.*use\s+/i)) {
+            if (linePrefix.match(/.*use\s+$/i)) {
                 return ['IEEE', 'STD'].map(lib => {
                     let item = new CompletionItem(lib.toUpperCase());
                     item.kind = CompletionItemKind.Module;
@@ -32,6 +32,7 @@ export const VhdlLibraryCompletionItemProvider = languages.registerCompletionIte
                     return item;
                 });
             }
+            return undefined;
         }
     },
     ' '

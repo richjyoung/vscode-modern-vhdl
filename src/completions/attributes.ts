@@ -210,7 +210,7 @@ export const VhdlAttributeCompletionItemProvider = languages.registerCompletionI
         provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
             const conf = workspace.getConfiguration('vhdl', document.uri);
             let linePrefix = document.lineAt(position).text.substr(0, position.character);
-            if (linePrefix.match(/.*[a-z0-9_]'/i)) {
+            if (linePrefix.match(/.*[a-z0-9_]'$/i)) {
                 return attributes.map(attr => {
                     let item = new CompletionItem(attr.attribute);
                     item.kind = attr.kind;
@@ -227,6 +227,7 @@ export const VhdlAttributeCompletionItemProvider = languages.registerCompletionI
                     return item;
                 });
             }
+            return undefined;
         }
     },
     "'"
