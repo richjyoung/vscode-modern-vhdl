@@ -180,53 +180,53 @@ subtype:
 # --------------------------------------------------
 
 testbench_process:
-  prefix: tproc
+  prefix: tproc, processt
   description: Testbench Process (No Sensitivity List) 
   scope: source.vhdl
   body:
     - "${1:proc_name}: process"
     - "begin"
-    - "$0"
+    - "\t$0"
     - "end process $1;"
 
 combinational_process :
-  prefix: cproc
+  prefix: cproc, processc
   description: Combinational Process 
   scope: source.vhdl
   body:
     - "${1:proc_name}: process(${2:sensitivity_list})"
     - "begin"
-    - "$0"
+    - "\t$0"
     - "end process $1;"
 
 asynchronous_reset_clocked_process :
-  prefix: aproc
+  prefix: aproc, processa
   description: Clocked Process (Asynchronous Reset)  
   scope: source.vhdl
   body:
     - "${1:proc_name}: process(${3:clk}, ${4:rst})"
     - "begin"
-    - "if ${4:rst} = ${5:rst_val} then"
-    - "\t$0"
-    - "elsif ${2|rising_edge,falling_edge|}(${3:clk}) then"
-    - "\t"
-    - "end if;"
+    - "\tif ${4:rst} = ${5:rst_val} then"
+    - "\t\t$0"
+    - "\telsif ${2|rising_edge,falling_edge|}(${3:clk}) then"
+    - "\t\t"
+    - "\tend if;"
     - "end process $1;"
 
 synchronous_reset_clocked_process :
-  prefix: sproc
+  prefix: sproc, processs
   description: Clocked Process (Synchronous Reset)  
   scope: source.vhdl
   body:
     - "${1:proc_name}: process(${3:clk})"
     - "begin"
-    - "if ${2|rising_edge,falling_edge|}(${3:clk}) then"
-    - "\tif ${4:rst} = ${5:rst_val} then"
-    - "\t\t$0"
-    - "\telse"
-    - "\t\t"
+    - "\tif ${2|rising_edge,falling_edge|}(${3:clk}) then"
+    - "\t\tif ${4:rst} = ${5:rst_val} then"
+    - "\t\t\t$0"
+    - "\t\telse"
+    - "\t\t\t"
+    - "\t\tend if;"
     - "\tend if;"
-    - "end if;"
     - "end process $1;"
 
 # --------------------------------------------------
