@@ -6,10 +6,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 
+## [v1.0.3]
+- Re-release due to error in changelog.
+
 ## [v1.0.2]
 - Added wordPattern to language config for better symbol extraction.
 - Fix completions showing beyond trigger point.
-- Fix indent of process statement, additional prefixes. ([@DanChianucci](https://github.com/DanChianucci))
+- Fix indent of process statement, additional prefixes. ([@droerich](https://github.com/droerich))
 
 ## [v1.0.1]
 - Added indent patterns. ([@DanChianucci](https://github.com/DanChianucci))
