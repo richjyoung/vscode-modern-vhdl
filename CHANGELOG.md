@@ -4,6 +4,9 @@ All notable changes to the "vscode-modern-vhdl-support" extension will be docume
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
+
+
+## [v1.0.2]
 - Added wordPattern to language config for better symbol extraction.
 - Fix completions showing beyond trigger point.
 - Fix indent of process statement, additional prefixes. ([@DanChianucci](https://github.com/DanChianucci))
