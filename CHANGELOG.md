@@ -6,15 +6,16 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 - Added wordPattern to language config for better symbol extraction.
 - Fix completions showing beyond trigger point.
+- Fix indent of process statement, additional prefixes. ([@DanChianucci](https://github.com/DanChianucci))
 
 ## [v1.0.1]
-- Added indent patterns ([@DanChianucci](https://github.com/DanChianucci))
-- Clean up grammar rules and scopes ([@DanChianucci](https://github.com/DanChianucci))
+- Added indent patterns. ([@DanChianucci](https://github.com/DanChianucci))
+- Clean up grammar rules and scopes. ([@DanChianucci](https://github.com/DanChianucci))
 
 ## [v1.0.0]
 - Major release: Seems stable enough to remove preview flag.
-- Additional snippets ([@droerich](https://github.com/droerich))
-- Fix comments inside enum lists ([@DanChianucci](https://github.com/DanChianucci))
+- Additional snippets. ([@droerich](https://github.com/droerich))
+- Fix comments inside enum lists. ([@DanChianucci](https://github.com/DanChianucci))
 
 ## [v0.0.7]
 - Max line length setting for stutter-mode comments.
@@ -24,7 +25,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [v0.0.5]
 - Completions for predefined attributes.
-- Snippets for various process statements ([@jethro33](https://github.com/jethro33))
+- Snippets for various process statements. ([@jethro33](https://github.com/jethro33))
 
 ## [v0.0.4]
 - Completions for standard library packages.
