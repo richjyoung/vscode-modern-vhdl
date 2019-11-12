@@ -6,6 +6,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 
+## [v1.0.4]
+- Fix bug whereby only lowercase names were suggested.
+
 ## [v1.0.3]
 - Re-release due to error in changelog.
 
