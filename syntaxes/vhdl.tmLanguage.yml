@@ -645,6 +645,9 @@ repository:
           - match: (?i)([a-z][a-z0-9_]*)
             captures:
               1: { name: entity.name.type.vhdl }
+          - match: (\'.\')
+            captures:
+              1: { name: string.quoted.single.vhdl }
           - include: "#comments"
 
   file_declaration:
