@@ -4,7 +4,10 @@ All notable changes to the "vscode-modern-vhdl-support" extension will be docume
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
-
+- Fix indent after type statements.
+- Fix case sensitivity in enums. ([@SiMylo](https://github.com/SiMylo))
+- Fix issue with the `process` keyword. ([@pvanschendel](https://github.com/pvanschendel))
+- Fix display of character literals in enums. ([@pvanschendel](https://github.com/pvanschendel))
 
 ## [v1.0.4]
 - Fix bug whereby only lowercase names were suggested.
