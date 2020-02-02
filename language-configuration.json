@@ -27,7 +27,7 @@
     ],
     "wordPattern": "(?<!\\\\)\\b([0-9a-zA-Z]+[0-9a-zA-Z_]*)\\b(?!\\\\)|(\\\\([0-9a-zA-Z]+[0-9a-zA-Z_\\\\]*)\\\\)",
     "indentationRules": {
-        "increaseIndentPattern": "\\b(begin|is|port|else|loop|generate|then)\\b",
+        "increaseIndentPattern": "\\b(begin|is|port|else|loop|generate|then)\\b\\s*(--.*)?$",
         "decreaseIndentPattern": "^\\s*(elsif|else|end|begin)\\b"
       }
 }
