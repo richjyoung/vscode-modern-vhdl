@@ -425,7 +425,7 @@ repository:
     # [postponed] process ... end [postponed] process [label] ;
     patterns:
       - name: meta.block.process_statement.vhdl
-        begin: (?i)\b((?i:postponed\s+)?process)
+        begin: (?i)\b((?i:postponed\s+)?process)\b
         beginCaptures:
           1: { name: keyword.reserved.vhdl }
         end: (?xi)
@@ -645,6 +645,9 @@ repository:
           - match: (?i)([a-z][a-z0-9_]*)
             captures:
               1: { name: entity.name.type.vhdl }
+          - match: (\'.\')
+            captures:
+              1: { name: string.quoted.single.vhdl }
           - include: "#comments"
 
   file_declaration:
