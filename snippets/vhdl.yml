@@ -239,6 +239,12 @@ std_logic_vector:
   scope: source.vhdl
   body: std_logic_vector(${1:7} ${2|downto,to|} ${3:0})
 
+std_ulogic_vector:
+  prefix: stdu
+  description: std_ulogic_vector Type
+  scope: source.vhdl
+  body: std_ulogic_vector(${1:7} ${2|downto,to|} ${3:0})
+
 signed:
   prefix: si
   description: signed Type
