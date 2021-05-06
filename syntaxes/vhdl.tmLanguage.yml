@@ -635,7 +635,7 @@ repository:
     # (?<=is_) ( ... ) ;
     patterns:
       - name: meta.block.enum_statement.vhdl
-        begin: (?i)(?<=is)\s*(\()
+        begin: (?i)(?<=\bis)\s*(\()
         beginCaptures:
           1: { name: keyword.operator.vhdl }
         end: (?i)(\)\s*;)
