@@ -5,6 +5,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [v1.0.6]
+- Grammar and indentation issues ([@pvanschendel](https://github.com/pvanschendel))
+- Errors with 'is' in names ([@DanChianucci](https://github.com/DanChianucci))
+- Highlighting of words beginning 'end' ([@Obliged](https://github.com/Obliged))
+- Remove deprecated packages, and bump minimum vscode release to 1.50.0.
 
 ## [v1.0.5]
 - Fix indent after type statements.
