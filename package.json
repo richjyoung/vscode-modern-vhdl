@@ -7,7 +7,7 @@
     "license": "MIT",
     "icon": "images/logo.png",
     "engines": {
-        "vscode": "^1.18.0"
+        "vscode": "^1.50.0"
     },
     "main": "./out/extension.js",
     "repository": {
@@ -130,15 +130,14 @@
         "build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
         "compile": "tsc -p ./",
         "watch": "npm run-script build && tsc -watch -p ./",
-        "vscode:prepublish": "npm run-script build && npm run-script compile",
-        "postinstall": "node ./node_modules/vscode/bin/install"
+        "vscode:prepublish": "npm run-script build && npm run-script compile"
     },
     "devDependencies": {
         "@types/node": "^10.17.59",
+        "@types/vscode": "^1.50.0",
         "js-yaml": "^3.14.1",
         "tslint": "^5.20.1",
-        "typescript": "^3.9.9",
-        "vscode": "^1.1.37"
+        "typescript": "^3.9.9"
     },
     "prettier": {
         "printWidth": 100,
