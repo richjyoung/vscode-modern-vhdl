@@ -23,6 +23,31 @@ entity_declaration:
     - "\t\t$0"
     - "\t);"
     - "end entity ${1:$TM_FILENAME_BASE};"
+    
+entity_with_generic_declaration:
+  prefix: gent
+  description: Entity With Generic Declaration
+  scope: source.vhdl
+  body:
+    - "entity ${1:$TM_FILENAME_BASE} is"
+    - "\tgeneric ("
+    - "\t\t$0"
+    - "\t);"
+    - "\tport ("
+    - "\t\t$0"
+    - "\t);"
+    - "end entity ${1:$TM_FILENAME_BASE};"
+    
+component_declaration:
+  prefix: com
+  description: Component Declaration
+  scope: source.vhdl
+  body:
+    - "component YOUR_COMPONENT"
+    - "\tport ("
+    - "\t\t$0"
+    - "\t);"
+    - "end component;"
 
 architecture_declaration:
   prefix: arch
